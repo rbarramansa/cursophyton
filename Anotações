@@ -1,0 +1,146 @@
+===Anotações ===
+
+
+* Para imprimir textos grandes e com quebras automáticas, utilizar 3 aspas no print
+
+0 - Operadores
+    0.1 - Divisão com resto (Mostra casas decimais)
+            Ex : n/2
+    0.2 - Divisão sem resto (Não mostra casas decimais)
+            Ex : n // 2
+
+    0.3 - Mostrar o resto da divisão
+            Ex: 18 % 2 = 0 ou 19 % 2 = 1
+
+    0.4 - Potenciação
+            Ex : n**2 ou pow (2,2), utilizando o pow, a ordem de precedência não é respeitada
+    0.5 - Raíz Quadrada ou Raíz Cúbica
+            Ex : 25**(1/2) ou 9**(1/3)
+
+
+
+1 - Ordem de precedência
+    1.	()
+    1.2	- potenciação
+    1.3	- Multiplicação ou divisão
+    1.4	– Soma e subtração
+
+2 - Quebra de linha
+    2.1 - Para não quebrar a linha  end = ‘ ‘
+    2.2 - Para  quebrar a linha  \n
+
+3 - Para delimitar o tamanho da casa decimal – Ex: divisão é {:.3f}, onde o “3” é o número de casas decimais e o “F” é o atributo float.
+
+4 – Como imprimir caracteres
+    4.1 – Exemplo : print (‘#’*20)
+    4.2 – Print com maior número de caracteres.
+            Exemplo : nome = input (‘Qual é o seu nome !’)
+            Print (‘Prazer em conhecer {.20}’.format (nome))
+            Prazer em te conhecer Renato                             !
+
+    4.3 – Alinhando a esquerda em 20 espaços
+            Print (‘Prazer em te conhecer {:>20}’.format(nome))
+            Prazer em te conhecer 		Renato !
+
+    4.4 Centralizando em 20 espaços
+            Print (‘Prazer em te conhecer {:^20}’.format(nome))
+
+    4.5 Centralizando em 20 espaços colocando igual em volta
+            Print (‘Prazer em te conhecer {:=^20}’.format(nome))
+
+
+5 - Trabalhando com bibliotecas
+    5.1 - Import = serve para importar toda a biblioteca (mais generalista)
+    5.2 - Exemplo : from "math" import "sqrt" (mais específica)
+    5.3 - Para verificar documentação das bibliotecas, python.org / Library reference /
+    5.4 - O método random.choice, escolhe strings em uma lista
+    5.5 - Método random.shufle, escolhe a ordem em uma lista
+
+6 - Manipulando texto
+
+    6.1 - Técnica de fatiamento - É utilizado para pegar uma letra dentro de uma frase
+
+          Exemplo 01: frase = 'Curso em vídeo python'
+          print (frase[9])
+          Neste caso o a letra a ser mostrada na tela será, a que estiver na posição 9
+
+          Exemplo 02 : ao utilizar o código frase[9:13], significa que o que será impresso
+                       será o que está contido no vetor na posição 9 e terminando em 12, a
+                       posição 13 neste caso é excluída, a última posição sempre será excluída.
+                       No exemplo o que será impresso será o "Vide"
+
+          Exemplo 03 : ao utilizar frase[9][21][2], será impresso os caracteres das posições de
+                       9 a 23, alternando de duas em duas casas. "VdoPto"
+
+          Exemplo 04 : ao utilizar frase[:5], a frase inicia na posição zero e imprime até a posição
+                       4 "Curso"
+
+          Exemplo 05 : ao utilizar frase [5:], a frase inicia na posição 5 e termina, no final do vetor
+                       "em Video Python"
+
+          Exemplo 06 : ao utilizar frase [9::3], neste caso será impresso da posição 9 até o final do vetor
+                       alternando de 3 em 3 letras."VePh"
+
+          Exemplo 07 : ao utilizar [::2], imprime a frase toda, pulando de 2 em 2 caracteres
+
+    6.1.1 - Análise - analisar é saber as informações das strings, Ex: Tamanho, com que letra começa ou termina, qual
+            a primeira palavra inteira
+
+           Função len : mostra o comprimento do vetor: ex : print (len(frase)) = 21
+           Função count:conta quantas vezes determinada letra aparece no vetor : print (frase.count('o')) = 3
+           Contar letra entre intervalos:print (frase.count('u',0,10))
+           Função find : mostra aonde determinado intervalo começa. Exemplo : print (frase.find('deo') = 9
+                        quando um valor for pesquisado, e não existir na frase, o valor retornado será -1
+           Operador in : mostra true ou false, para o caracter mencionado. Exemplo : print ('Curso'in frase) = True
+
+    6.1.2 - Transformação - Via de regra uma lista de string é imutável, a gente não consegue mexer nela, porém é
+            possível alterá-las através de métodos.
+
+            Exemplo : frase [0] = j, essa atribuição gera erro pois é imutável, portanto o replace só alterou a visualização
+            e não a variável.
+            Para dar certo teria que salvar o resultado ex : frase =frase.replace ('Curso','Android')
+
+            Função replace : Modifica os elementos. Ex: print (frase.replace('Curso','Android')) = Android em Video Python
+            Função upper : Transforma em maíusculo. Ex: print(frase.upper())
+            Função lower : Transforma em minusculo. Ex: print(frase.lower())
+            Função capitalize : Só mantêm o primeiro caracter em maiusculo. Ex:print(frase.capitalize())
+            Função title : Transforma as primeiras letras das palavras em maiusculo. Ex:print(frase.title())
+            Função strip : Remove espaços antes e depois, caso o usuário tenha digitado por engano. Ex:print(frase.strip())
+            Função rstrip : Remove espaços a direita da string, caso o usuário tenha digitado por engano. Ex:print(frase.rstrip())
+            Função lstrip : Remove espaços a esquerda da string, caso o usuário tenha digitado por engano. Ex:print(frase.lstrip())
+
+    6.1.3 - Divisão - Para dividir strings.
+
+            Função split : Executa divisão dentro da string, considerando os espaços,basicamente vai verificar onde tem
+            espaço e realizar uma divisão, ele refaz os índices, cada uma das palavras é colocada dentro de outra lista
+
+
+
+            Para salvar essa divisão :
+
+                Ex: dividido = frase.split() = print (dividido) = ['Curso', 'em', 'Video', 'Python']
+
+            Se eu quiser imprimir a primeira palavra :
+
+                Ex: print (dividido[0])
+
+            Se eu quiser imprimir a segunda palavra e a segunda letra :
+
+                Ex: print (dividido[0],[3])
+
+    6.1.4 - Junção - Utiliza o conceito inverso da divisão, é necessário utilizar uma variável, com a string dividida
+
+            Exemplo : print ('*'(dividido)) = Curso*em*Video*Python
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+nome = input('Digite seu nome \n')
+print('Seja bem vindo {:=<20}'.format(nome))
+print ('Seja bem vindo{:=^20}'.format(nome))
+print ('Seja bem vindo {:=>50}'.format(nome))
+print('Seja bem vindo {:=>100}'.format(nome))
+print ('Seja bem vindo {:=^50}'.format(nome))
